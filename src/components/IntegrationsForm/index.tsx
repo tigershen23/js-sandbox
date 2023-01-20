@@ -30,7 +30,7 @@ export default function IntegrationsForm({
           </div>
         </div>
 
-        <Switch />
+        <Switch2 />
       </div>
 
       {showCrmObjectId && (
@@ -81,6 +81,35 @@ function TextInput({
         type="text"
         className="absolute left-4 bottom-1 w-full border-0 bg-transparent text-lg text-white outline-0 placeholder:text-white/40"
       />
+    </label>
+  );
+}
+
+function Switch2({ label }: { label?: string }) {
+  const [enabled, setEnabled] = React.useState(false);
+
+  return (
+    <label className="relative inline-flex cursor-pointer items-center">
+      {/* left-46px comes from 44 (w-11) + 2 (border), if there's a label */}
+      {label && (
+        <span className="mr-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">
+          {label}
+        </span>
+      )}
+      <input
+        type="checkbox"
+        checked={enabled}
+        onClick={() => setEnabled(!enabled)}
+        value=""
+        className="peer sr-only"
+      />
+      <div
+        className="peer h-6 w-11 rounded-full bg-purp-500
+                   after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full 
+                   after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] 
+                   peer-checked:bg-purp-500 peer-checked:after:translate-x-full peer-checked:after:border-white 
+                   dark:border-gray-600 dark:bg-white/20"
+      ></div>
     </label>
   );
 }

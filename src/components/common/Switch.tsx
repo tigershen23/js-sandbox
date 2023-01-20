@@ -1,6 +1,5 @@
 import React from "react";
 
-// https://blog.theashishmaurya.me/switch-component-with-react-tailwind-css
 function Switch() {
   const [toggle, setToggle] = React.useState(true);
   const toggleClass = " transform translate-x-5";
